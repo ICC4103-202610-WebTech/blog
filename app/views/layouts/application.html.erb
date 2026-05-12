@@ -25,6 +25,19 @@
 
   <body>
     <div class="container">
+      <% if notice %>
+        <div class="alert alert-success" role="alert">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+          <div class="alert alert-danger" role="alert">
+            <%= alert %>
+          </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-secondary" %>
+      <% end %>
       <%= yield %>
     </div>
   </body>
